@@ -31,3 +31,16 @@ function getTask() {
         'task.completed'
     )
 }
+
+function getProjectTask(projectId) {
+    return db('task')
+    .join('project', 'project.id', 'project_id' )
+    .select(
+        'project.name',
+        'project.description',
+        'task.description',
+        'task.notes',
+        'task.completed'
+    )
+    .where('project_id', projectId)
+}
