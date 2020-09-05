@@ -70,3 +70,15 @@ router.get("/tasks", async (req, res) => {
           res.status(500).json(err)
       })
   })
+
+  router.post('/resources', (req, res) => {
+      projectModel
+      .addResource(req.body)
+      .then((resource) => {
+          res.status(201).json({ resource })
+      })
+      .catch((err) => {
+          console.log(err)
+          res.status(500).json(err)
+      })
+  })
