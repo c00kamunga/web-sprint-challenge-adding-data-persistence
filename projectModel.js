@@ -16,3 +16,7 @@ module.exports = {
 function getProject() {
     return db('project')
 }
+
+function getResource() {
+    return db('resource')
+}
