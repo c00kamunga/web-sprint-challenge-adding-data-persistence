@@ -35,4 +35,16 @@ router.get("/tasks", async (req, res) => {
       res.json(resources)
   })
 
+  router.get('projects/:id/tasks', (req, res) => {
+      projectModel.getProjectTask(req.params.id).then((task) => {
+          if(task.length === 0) {
+              res
+              .status(404)
+              .json({ message: 'The task with the specified ID does not exist' })
+          } else {
+              res.status(200).json(task)
+          }
+      })
+  })
+
   
