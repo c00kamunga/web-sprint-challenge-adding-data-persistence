@@ -58,3 +58,15 @@ router.get("/tasks", async (req, res) => {
           res.status(500).json(err)
       })
   })
+
+  router.post('/projects/:id/tasks', (req, res) => {
+      projectModel
+      .addTask(req.body)
+      .then((task) => {
+         res.status(201).json({ task })
+      })
+      .catch((err) => {
+          console.log(err)
+          res.status(500).json(err)
+      })
+  })
