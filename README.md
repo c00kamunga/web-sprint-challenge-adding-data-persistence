@@ -95,7 +95,7 @@ Your finished project must include all of the following requirements:
     -   [ ] adding resources.
     -   [ ] retrieving a list of resources.
     -   [x] adding projects.
-    -   [ ] retrieving a list of projects.
+    -   [x] retrieving a list of projects.
     -   [ ] adding tasks.
     -   [ ] retrieving a list of tasks. **The list of tasks should include the project name and project description**.
 
