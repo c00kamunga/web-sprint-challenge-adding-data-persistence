@@ -19,11 +19,18 @@ exports.up = async function(knex) {
       tbl.primary(['project_id', 'resource_id'])
   })
 
+  await knex.schema.createTable('task', tbl => {
+      tbl.integer('project_id').references('id').inTable('project').onDelete('SET NULL').onUpdate('CASCADE')
+      tbl.string('description').notNullable().unique()
+      tbl.string('notes')
+      tbl.boolean('completed').defaultTo(false).notNullable()
+  })
 };
 
 
 
 exports.down = function(knex) {
+    await knex.schema.dropTableIfExists('task')
     await knex.schema.dropTableIfExists('project_resources')
     await knex.schema.dropTableIfExists('resource')
     await knex.schema.dropTableIfExists('project')    
