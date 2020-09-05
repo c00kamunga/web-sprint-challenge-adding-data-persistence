@@ -8,6 +8,9 @@ exports.up = async function(knex) {
   })
 };
 
+
+
 exports.down = function(knex) {
-  
+await knex.schema.dropTableIfExists('project')    
 };
+
