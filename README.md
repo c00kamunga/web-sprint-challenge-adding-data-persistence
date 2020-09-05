@@ -93,7 +93,7 @@ Your finished project must include all of the following requirements:
     -   [ ] for `projects` and `tasks` if no value is provided for the `completed` property, the API should provide a default value of `false`.
 -   [ ] Build an API with endpoints for:
     -   [x] adding resources.
-    -   [ ] retrieving a list of resources.
+    -   [x] retrieving a list of resources.
     -   [x] adding projects.
     -   [x] retrieving a list of projects.
     -   [ ] adding tasks.
