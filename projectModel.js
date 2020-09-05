@@ -12,3 +12,7 @@ module.exports = {
     connectResource,
     getProjectResources
 }
+
+function getProject() {
+    return db('project')
+}
