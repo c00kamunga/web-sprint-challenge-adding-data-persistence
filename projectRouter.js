@@ -35,7 +35,7 @@ router.get("/tasks", async (req, res) => {
       res.json(resources)
   })
 
-  router.get('projects/:id/tasks', (req, res) => {
+  router.get('/projects/:id/tasks', (req, res) => {
       projectModel.getProjectTask(req.params.id).then((task) => {
           if(task.length === 0) {
               res

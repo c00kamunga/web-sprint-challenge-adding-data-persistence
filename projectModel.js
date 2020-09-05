@@ -53,7 +53,7 @@ function addProject(project) {
     return db('project')
     .insert(project)
     .then((ids) => {
-        const [id] = id;
+        const [id] = ids;
         return findById(id)
     })
 }
