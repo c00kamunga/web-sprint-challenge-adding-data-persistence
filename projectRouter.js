@@ -82,3 +82,10 @@ router.get("/tasks", async (req, res) => {
           res.status(500).json(err)
       })
   })
+
+  router.post('/projects/:id/connect', async (req, res) => {
+      await projectModel.connectResource(req.params.id, req.body.resource_id)
+      res.json({ message: 'successfully connected resource' })
+  })
+
+  module.exports = router
