@@ -75,3 +75,8 @@ function addTask(task) {
         return findById(id)
     })
 }
+
+function connectResource(project_id, resource_id) {
+    return db("project_resources").insert({ resource_id, project_id })
+}
+
