@@ -20,3 +20,14 @@ function getProject() {
 function getResource() {
     return db('resource')
 }
+
+function getTask() {
+    return db('task')
+    .join('project', 'project.id', 'task.project_id')
+    .select(
+        'project.name',
+        'project.description',
+        'task.description',
+        'task.completed'
+    )
+}
