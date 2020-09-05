@@ -44,3 +44,8 @@ function getProjectTask(projectId) {
     )
     .where('project_id', projectId)
 }
+
+function findById(id) {
+    return db('project').where({ id }).first()
+}
+
