@@ -67,3 +67,11 @@ function addResource(resource) {
     })
 }
 
+function addTask(task) {
+    return db('task')
+    .insert(task)
+    .then((ids) => {
+        const [id] = ids;
+        return findById(id)
+    })
+}
