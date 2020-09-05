@@ -49,3 +49,11 @@ function findById(id) {
     return db('project').where({ id }).first()
 }
 
+function addProject(project) {
+    return db('project')
+    .insert(project)
+    .then((ids) => {
+        const [id] = id;
+        return findById(id)
+    })
+}
