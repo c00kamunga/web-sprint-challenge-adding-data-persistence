@@ -19,3 +19,20 @@ router.get('/resources', async (req, res) => {
         res.status(400).json({ errorMessage: "issue with the server" })
     })
 })
+
+router.get("/tasks", async (req, res) => {
+    projectModel
+      .getTask()
+      .then((task) => res.status(200).json(task))
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json({ errorMessage: "issue with the server" });
+      });
+  });
+
+  router.get('/projects/:id/resources', async (req, res) => {
+      const resources = await projectModel.getProjectResources(req.params.id)
+      res.json(resources)
+  })
+
+  
