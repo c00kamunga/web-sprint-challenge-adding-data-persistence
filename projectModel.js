@@ -80,3 +80,9 @@ function connectResource(project_id, resource_id) {
     return db("project_resources").insert({ resource_id, project_id })
 }
 
+function getProjectResources(project_id) {
+    return db('project_resources')
+    .where({ project_id })
+    .join('resource', {'project_resources.resource_id': 'resource.id'})
+    .select('resource.*')
+}
