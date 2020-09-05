@@ -57,3 +57,13 @@ function addProject(project) {
         return findById(id)
     })
 }
+
+function addResource(resource) {
+    return db('resource')
+    .insert(resource)
+    .then((ids) => {
+        const [id] = ids
+        return findById(id)
+    })
+}
+
