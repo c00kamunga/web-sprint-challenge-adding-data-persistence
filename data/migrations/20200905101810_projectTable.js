@@ -13,13 +13,19 @@ exports.up = async function(knex) {
       tbl.string('description')
   })
 
+  await knex.schema.dropTableIfExists('project_resources', tbl => {
+      tbl.integer('project_id').references('id').inTable('project').onDelete('SET NULL').onUpdate('CASCADE')
+      tbl.integer('resource_id').references('id').inTable('resource').onDelete('SET NULL').onUpdate('CASCADE')
+      tbl.primary(['project_id', 'resource_id'])
+  })
 
 };
 
 
 
 exports.down = function(knex) {
-await knex.schema.dropTableIfExists('resource')
-await knex.schema.dropTableIfExists('project')    
+    await knex.schema.dropTableIfExists('project_resources')
+    await knex.schema.dropTableIfExists('resource')
+    await knex.schema.dropTableIfExists('project')    
 };
 
